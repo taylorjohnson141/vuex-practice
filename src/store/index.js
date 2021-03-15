@@ -11,11 +11,16 @@ export default createStore({
   actions: {
     addToDo({commit},todo){
       commit('newToDo',todo)
+    },
+    deleteToDo({commit},todo){
+      commit('deleteToDo',todo)
     }
   },
   mutations: {
     newToDo(state,newTodo){
-      state.todos.unshift(newTodo)
+      if(!state.todos.find(todo => todo.title === newTodo)){
+        state.todos.unshift({title:newTodo, completed:false})
+      }
     } 
   },
   getters:{

@@ -1,15 +1,15 @@
 <template>
-  <!-- <AddTodo/> -->
+  <AddToDo/>
   <ToDos/>
 </template>
 
 <script>
-// import AddTodo from "components/AddToDo.vue"
+import AddToDo from "./components/AddToDo.vue"
 import ToDos from "./components/ToDos"
 export default {
   name: 'App',
   components: {
-    ToDos
+    ToDos,AddToDo
   }
 }
 </script>
