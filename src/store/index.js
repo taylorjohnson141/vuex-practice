@@ -2,8 +2,10 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    todo:[{
-      title:"something"
+    todos:[{
+      title:"something",
+    },{
+      title:"else"
     }]
   },
   actions: {
@@ -13,12 +15,12 @@ export default createStore({
   },
   mutations: {
     newToDo(state,newTodo){
-      state.todo.unshift(newTodo)
+      state.todos.unshift(newTodo)
     } 
   },
   getters:{
-    getToDos(){
-      return state.todo
+    getToDos:(state) =>{
+      return state.todos
     }
   },
   modules: {
