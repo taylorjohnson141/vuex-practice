@@ -13,6 +13,7 @@ export default createStore({
       commit('newToDo',todo)
     },
     deleteToDo({commit},todo){
+      console.log('here')
       commit('deleteToDo',todo)
     }
   },
@@ -21,7 +22,11 @@ export default createStore({
       if(!state.todos.find(todo => todo.title === newTodo)){
         state.todos.unshift({title:newTodo, completed:false})
       }
-    } 
+    },
+    deleteToDo(state,todo){
+      let todoTitle = state.todos.findIndex(CurrTodo => CurrTodo.title === todo.title )
+       state.todos.splice(todoTitle,1)
+    }
   },
   getters:{
     getToDos:(state) =>{
